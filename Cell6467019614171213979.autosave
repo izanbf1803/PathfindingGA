@@ -1,4 +1,0 @@
-class Cell
-{
-    Vector pos;
-}

@@ -1,4 +1,4 @@
-final double mutationRate = 0.01;
+final double mutationRate = 1 / 100;
 final int population_size = 200;
 final int lifetime = 100;
 final int updates_per_frame = 1;

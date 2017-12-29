@@ -48,7 +48,17 @@ class Population
 
     void fitness()
     {
-
+        double[] score = new double[cells.length];
+        double score_sum = 0;
+        for (int i = 0; i < cells.length; ++i) {
+            score[i] = cells[i].fitness();
+            score_sum += score[i];
+        }
+        // Normalize scores:
+        for (int i = 0; i < cells.length; ++i) {
+            score[i] /= score_sum;
+        }
+        
     }
 
     void selection()

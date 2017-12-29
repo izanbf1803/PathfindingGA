@@ -14,7 +14,7 @@ class Cell
         pos.add(dna.genes[step]);
     }
 
-    double fitness(Vector target)
+    double fitness()
     {
         double d = pos.dist(target);
         double d_inv = 1 / d;
