@@ -9,6 +9,11 @@ class Vector
         y = y_;
     }
 
+    Vector copy()
+    {
+        return new Vector(x, y);
+    }
+
     void add(Vector v) 
     {
         x += v.x;
@@ -19,6 +24,12 @@ class Vector
     {
         x -= v.x;
         y -= v.y;
+    }
+
+    void mult(int scalar)
+    {
+        x *= scalar;
+        y *= scalar;
     }
 
     double modulus()

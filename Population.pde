@@ -1,28 +1,29 @@
 class Population
 {
-    double mutationRate;
-    int lifetime;
-    Cell[] population;
+    Cell[] cells;
     ArrayList<Cell> matingPool;
     int generations;
     int step;
 
-    Population(double mutationRate_, int lifetime_, int population_)
+    Population()
     {
         step = -1;
-        mutationRate = mutationRate_;
-        lifetime = lifetime_;
-        population = new Cell[population_];
-        for (int i = 0; i < population.length; ++i) {
-            population[i] = new Cell(new Vector(0, 0), lifetime);
+        generations = 1;
+        cells = new Cell[population_size];
+        for (int i = 0; i < cells.length; ++i) {
+            cells[i] = new Cell();
         }
     }
 
     void draw()
     {
-        for (int i = 0; i < population.length; ++i) {
-            Vector p = population[i].pos;
-            point(p.x, p.y);
+        for (int i = 0; i < cells.length; ++i) {
+            Vector p = cells[i].pos;
+            for (int j = -scale/2; j < scale/2; ++j) {
+                for (int k = -scale/2; k < scale/2; ++k) {
+                    point(p.x + j, p.y + k);
+                }
+            }
         }
     }
 
@@ -30,16 +31,18 @@ class Population
     {
         ++step;
         if (step < lifetime) {
-            for (int i = 0; i < population.length; ++i) {
-                population[i].update(step);
+            println(step);
+            for (int i = 0; i < cells.length; ++i) {
+                cells[i].update(step);
             }
-            this.draw();
         }
         else {
             step = -1;
+            ++generations;
             this.fitness();
             this.selection();
             this.reproduction();
+            this.update();
         }
     }
 

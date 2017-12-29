@@ -1,12 +1,23 @@
 class DNA
 {
+    final Vector[] directions = {
+        new Vector(-1, 0),
+        new Vector(1, 0),
+        new Vector(0, -1),
+        new Vector(0, 1),
+        new Vector(-1, -1),
+        new Vector(1, 1),
+        new Vector(1, -1),
+        new Vector(-1, 1),
+    };
     Vector[] genes;
 
-    DNA(int lifetime) 
+    DNA() 
     {
         genes = new Vector[lifetime];
         for (int i = 0; i < genes.length; ++i) {
-            genes[i] = new Vector(int(random(-1, 1)), int(random(-1, 1)));
+            int rand = (int)random(0, directions.length);
+            genes[i] = directions[rand].copy();
         }
     }
 }

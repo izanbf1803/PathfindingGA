@@ -3,10 +3,10 @@ class Cell
     Vector pos;
     DNA dna;
 
-    Cell(Vector pos_, int lifetime)
+    Cell()
     {
-        pos = pos_;
-        dna = new DNA(lifetime);
+        pos = initialPos.copy();
+        dna = new DNA();
     }
 
     void update(int step)
