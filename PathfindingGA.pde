@@ -1,4 +1,4 @@
-final double mutationRate = 20 / 100;
+final double mutationRate = 5 / 100;
 final int population_size = 256;
 final int lifetime = 10000;
 final int scale = 4;
@@ -6,9 +6,8 @@ final int width_ = 800;
 final int height_ = 600;
 final int fps = 60;
 final int steps_per_second = 2500;
-final int target_found_bonus = 1000;
 final Vector initialPos = new Vector(width_/2, height_/2);
-final Vector target = new Vector(width_/2, scale);
+final Vector target = new Vector(width_/2, height_/6);
 
 PFont f;
 Population population;
