@@ -40,7 +40,6 @@ class Population
         else {
             step = -1;
             ++generations;
-            println("gen", generations);
             this.fitness();
             this.selection();
             this.reproduction();
