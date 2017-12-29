@@ -6,7 +6,7 @@ final int width_ = 800;
 final int height_ = 600;
 final int fps = 30;
 final int steps_per_second = 2500;
-final int precomputed_generations = 100; // Generations computed before graphic view
+final int precomputed_generations = 0; // Generations computed before graphic view
 final Vector initialPos = new Vector(width_/2, height_/2);
 final Vector target = new Vector(width_/2, height_/6);
 
