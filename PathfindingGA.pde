@@ -6,6 +6,7 @@ final int width_ = 800;
 final int height_ = 600;
 final int fps = 30;
 final int steps_per_second = 2500;
+final int precomputed_generations = 0; // Generations computed before graphic view
 final Vector initialPos = new Vector(width_/2, height_/2);
 final Vector target = new Vector(width_/2, height_/6);
 
@@ -21,6 +22,9 @@ void setup()
     f = createFont("Arial", 16, true);
     updates_per_frame = steps_per_second / fps;
     population = new Population();
+    for (long i = 0; i < precomputed_generations * lifetime; ++i) { // Start at Nth generation
+        population.update();
+    }
 }
 
 void draw()
