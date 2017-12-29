@@ -1,7 +1,7 @@
 class Population
 {
     Cell[] cells;
-    Cell[] matingPool;
+    Cell[] mating_pool;
     double[] score;
     int generations;
     int step;
@@ -65,11 +65,11 @@ class Population
     {
         // Select cells randomly to reproduce:
         int N = 2 * cells.length;
-        matingPool = new Cell[N];
+        mating_pool = new Cell[N];
         int index = 0;
         for (int i = 0; i < cells.length; ++i) {
             for (int j = 0; j < N * score[i] && index < N; ++j) {
-                matingPool[index] = cells[i];
+                mating_pool[index] = cells[i];
                 ++index;
             }
         }
@@ -78,15 +78,18 @@ class Population
     void reproduction()
     {
         Cell[] children = new Cell[cells.length];
+        Cell[] parents = new Cell[2];
         for (int i = 0; i < cells.length; ++i) {
             children[i] = new Cell();
+            parents[0] = mating_pool[(int)random(0, mating_pool.length)]; // [0, mating_pool.length-1] (int)
+            parents[1] = mating_pool[(int)random(0, mating_pool.length)]; // ...
             for (int j = 0; j < lifetime; ++j) {
                 if (random(0, 1) <= mutationRate) { // [0, 1) (float)
                     children[i].dna.genes[j] = children[i].dna.randomGene(); // mutate
                 }
                 else {
-                    int parentIndex = 2 * i + (int)random(0, 2); // [0, 1] (int)
-                    children[i].dna.genes[j] = matingPool[parentIndex].dna.genes[j];
+                    int parentIndex = (int)random(0, 2); // [0, 1] (int)
+                    children[i].dna.genes[j] = parents[parentIndex].dna.genes[j];
                 }
             }
         }
