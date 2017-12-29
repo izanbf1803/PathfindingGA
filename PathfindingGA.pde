@@ -1,23 +1,25 @@
-final double mutationRate = 1 / 100;
+final double mutationRate = 5 / 100;
 final int population_size = 200;
-final int lifetime = 100;
-final int updates_per_frame = 1;
+final int lifetime = 5000;
 final int scale = 4;
 final int width_ = 800;
 final int height_ = 600;
-final int fps = 15;
+final int fps = 60;
+final int steps_per_second = 2500;
 final Vector initialPos = new Vector(width_/2, height_/2);
 final Vector target = new Vector(width_/2, scale);
 
 PFont f;
 Population population;
 int vOffset;
+int updates_per_frame;
 
 void setup() 
 {
     surface.setSize(width_, height_);
     frameRate(fps);
     f = createFont("Arial", 16, true);
+    updates_per_frame = steps_per_second / fps;
     population = new Population();
 }
 

@@ -9,6 +9,11 @@ class Cell
         dna = new DNA();
     }
 
+    void genRandomDNA()
+    {
+        dna.randomGenes();
+    }
+
     void update(int step)
     {
         pos.add(dna.genes[step]);
