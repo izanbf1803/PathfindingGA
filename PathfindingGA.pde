@@ -1,10 +1,10 @@
 final double mutationRate = 5 / 100;
-final int population_size = 256;
+final int population_size = 128;
 final int lifetime = 10000;
 final int scale = 4;
 final int width_ = 800;
 final int height_ = 600;
-final int fps = 60;
+final int fps = 30;
 final int steps_per_second = 2500;
 final Vector initialPos = new Vector(width_/2, height_/2);
 final Vector target = new Vector(width_/2, height_/6);
@@ -16,7 +16,7 @@ int updates_per_frame;
 
 void setup() 
 {
-    surface.setSize(width_, height_);
+    size(800, 600);
     frameRate(fps);
     f = createFont("Arial", 16, true);
     updates_per_frame = steps_per_second / fps;
